@@ -58,26 +58,26 @@ void MouseSpawner::spawn()
 				auto yPosition = yDistribution(randomEngine);
 				mouse->setBodyPosition(static_cast<float>(xPosition), static_cast<float>(yPosition));
 
-				if (m_snake->checkForCollision(mouse->getBodyRect())) //check it doesn't collide with the snake
-				{
-					success = false;
-				}
-				else if (!windowRect.contains({ mouse->getBodyRect().left,mouse->getBodyRect().top }))	// check it's in the window
-				{
-					success = false;
-				}
-				else
-				{
-					//check the rest of the mice for collisions
-					for (auto& otherMouse : spawnedMice)
-					{
-						if (mouse->getBodyRect().intersects(otherMouse.second->getBodyRect()))
-						{
-							success = false;
-							break;
-						}
-					}
-				}
+//                if (m_snake->checkForCollision(mouse->getBodyRect())) //check it doesn't collide with the snake
+//                {
+//                    success = false;
+//                }
+//                else if (!windowRect.contains({ mouse->getBodyRect().left,mouse->getBodyRect().top }))    // check it's in the window
+//                {
+//                    success = false;
+//                }
+//                else
+//                {
+//                    //check the rest of the mice for collisions
+//                    for (auto& otherMouse : spawnedMice)
+//                    {
+//                        if (mouse->getBodyRect().intersects(otherMouse.second->getBodyRect()))
+//                        {
+//                            success = false;
+//                            break;
+//                        }
+//                    }
+//                }
 			} while (!success);
      
             spawnedMice.emplace(nextId, std::move(mouse));
@@ -91,15 +91,15 @@ void MouseSpawner::checkCollisions()
 {
 	for (auto mouse = spawnedMice.begin(); mouse != spawnedMice.end(); ++mouse)
 	{
-        if(m_snake->checkForCollision(mouse->second->getBodyRect()))
-        {
-			m_snake->addToSize(mousePointValue);
-            mouse = spawnedMice.erase(mouse);
-			if (mouse == spawnedMice.end())
-			{
-				break;
-			}
-		}
+//        if(m_snake->checkForCollision(mouse->second->getBodyRect()))
+//        {
+//            m_snake->addToSize(mousePointValue);
+//            mouse = spawnedMice.erase(mouse);
+//            if (mouse == spawnedMice.end())
+//            {
+//                break;
+//            }
+//        }
     }
 }
 

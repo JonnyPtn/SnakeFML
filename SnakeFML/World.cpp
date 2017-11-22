@@ -33,7 +33,7 @@ World::World(std::string backgroundTile, sf::Vector2i size)
 void World::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();
-	m_waterEffect.setParameter("time", m_shaderClock.getElapsedTime().asSeconds());	
+	m_waterEffect.setUniform("time", m_shaderClock.getElapsedTime().asSeconds());
 	states.shader = &m_waterEffect;
 	states.texture = &m_seaTexture;
 	target.draw(m_sea, states);

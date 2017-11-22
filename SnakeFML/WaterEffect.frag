@@ -127,4 +127,4 @@ void main(void)
 	vec3 colour = texture2D(baseTexture, coord).rgb;
 	colour = clamp(colour + highlight, 0.0, 1.0);
 	gl_FragColor = vec4(colour, 1.0);
-};
+}
